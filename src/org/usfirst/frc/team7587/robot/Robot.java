@@ -51,15 +51,11 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(elevator);
 		SmartDashboard.putData(wrist);
 		SmartDashboard.putData(claw);
-		
-		log2("Axis: " + oi.getJoystick().getAxisCount() + "; button: "  + oi.getJoystick().getButtonCount()); 
-		
-
 	}
 
 	@Override
 	public void autonomousInit() {
-		log2("autoinit");
+		println("autoinit");
 		autonomousCommand.start(); // schedule the autonomous command (example)
 	}
 
@@ -79,7 +75,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		log2("teleOp init");
+		println("teleOp init");
 		autonomousCommand.cancel();
 	}
 
@@ -111,7 +107,7 @@ public class Robot extends IterativeRobot {
 		claw.log();
 	}
 	
-	public static void log2(String s) {
+	public static void println(String s) {
 		System.out.println("<" + LocalDateTime.now() + ">: " + s);
 	}
 	

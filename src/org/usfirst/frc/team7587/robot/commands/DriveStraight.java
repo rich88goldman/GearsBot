@@ -23,7 +23,7 @@ public class DriveStraight extends Command {
 
 	public DriveStraight(double distance) {
 		requires(Robot.drivetrain);
-		pid = new PIDController(4, 0, 0, new PIDSource() {
+		pid = new PIDController(2, 0, 0, new PIDSource() {
 			PIDSourceType m_sourceType = PIDSourceType.kDisplacement;
 
 			@Override

@@ -4,7 +4,6 @@
  */
 package org.usfirst.frc.team7587.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 import org.usfirst.frc.team7587.robot.Robot;
@@ -22,11 +21,10 @@ public class CloseClaw extends TimedCommand {// Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.log2("CloseClaw init: " + System.identityHashCode(this));
+		Robot.println("CloseClaw init");
 		Robot.claw.close();
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
 	/*  -- for now make it finished in 1 sec
 	@Override
 	protected boolean isFinished() {
@@ -41,7 +39,6 @@ public class CloseClaw extends TimedCommand {// Command {
 		// can to fall out
 		// + there is no need to worry about stalling the motor or crushing the
 		// can.
-		Robot.log2("CloseClaw end, sim? " + Robot.isSimulation());
 //		if (!Robot.isSimulation())
 			Robot.claw.stop();
 	}

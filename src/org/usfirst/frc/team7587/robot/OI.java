@@ -25,7 +25,11 @@ public class OI {
 		SmartDashboard.putData("Open Claw", new OpenClaw());
 		SmartDashboard.putData("Close Claw", new CloseClaw());
 
-		SmartDashboard.putData("Deliver Soda", new Autonomous());
+//		SmartDashboard.putData("Deliver Soda", new Autonomous());
+		
+		SmartDashboard.putData("Drive Straight F+4", new DriveStraight(4));
+		SmartDashboard.putData("Drive Straight F-4", new DriveStraight(-4));
+		
 /*
 		// Create some buttons
 		JoystickButton d_up = new JoystickButton(joy, 3);			// up
@@ -34,14 +38,14 @@ public class OI {
 		JoystickButton d_right = new JoystickButton(joy, 1);		// open
 		JoystickButton d_left = new JoystickButton(joy, 2);			// close
 */		
-		JoystickButton d_up = new JoystickButton(joy, 4);			// up
-		JoystickButton d_down = new JoystickButton(joy, 1);			// down
+		JoystickButton d_up = new JoystickButton(joy, 4);			// elevator up
+		JoystickButton d_down = new JoystickButton(joy, 1);			// elevator down
 
-		JoystickButton d_right = new JoystickButton(joy, 2);		// open
-		JoystickButton d_left = new JoystickButton(joy, 3);			// close
+		JoystickButton d_right = new JoystickButton(joy, 2);		// claw open
+		JoystickButton d_left = new JoystickButton(joy, 3);			// claw close
 		
-		JoystickButton d_whori = new JoystickButton(joy, 5);			// horizontal
-		JoystickButton d_wstr = new JoystickButton(joy, 6);			// raised
+		JoystickButton d_whori = new JoystickButton(joy, 5);		// wrist horizontal
+		JoystickButton d_wstr = new JoystickButton(joy, 6);			// wrist raised
 		
 //		JoystickButton l2 = new JoystickButton(joy, 9);
 //		JoystickButton r2 = new JoystickButton(joy, 10);
