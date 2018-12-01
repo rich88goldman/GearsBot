@@ -4,6 +4,7 @@
  */
 package org.usfirst.frc.team7587.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 import org.usfirst.frc.team7587.robot.Robot;
@@ -25,12 +26,14 @@ public class CloseClaw extends TimedCommand {// Command {
 		Robot.claw.close();
 	}
 
-	/*  -- for now make it finished in 1 sec
+	//  -- for now make it finished in 1 sec
 	@Override
 	protected boolean isFinished() {
-		return Robot.claw.isGrabbing();
+		Timer.delay(1);
+		return true;
+//		return Robot.claw.isGrabbing();
 	}
-	*/
+	
 
 	// Called once after isFinished returns true
 	@Override

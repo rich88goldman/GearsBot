@@ -1,6 +1,7 @@
 package org.usfirst.frc.team7587.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -51,6 +52,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(elevator);
 		SmartDashboard.putData(wrist);
 		SmartDashboard.putData(claw);
+
 	}
 
 	@Override
@@ -65,7 +67,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 //		log2("auto-periodic");
-		Scheduler.getInstance().run();
+		Scheduler sd = Scheduler.getInstance();
+		sd.run();
+//		Timer.delay(0.2);
 		log();
 	}
 
@@ -85,7 +89,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 //		log2("teleop-periodic");
-		Scheduler.getInstance().run();
+		Scheduler sd = Scheduler.getInstance();
+		sd.run();
+//		Timer.delay(0.2);
 		log();
 	}
 
@@ -101,10 +107,10 @@ public class Robot extends IterativeRobot {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	private void log() {
-		wrist.log();
-		elevator.log();
+//		wrist.log();
+//		elevator.log();
 		drivetrain.log();
-		claw.log();
+//		claw.log();
 	}
 	
 	public static void println(String s) {
@@ -112,3 +118,4 @@ public class Robot extends IterativeRobot {
 	}
 	
 }
+

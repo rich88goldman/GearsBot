@@ -34,15 +34,16 @@ public class OI {
 		// Create some buttons
 		JoystickButton d_up = new JoystickButton(joy, 3);			// up
 		JoystickButton d_down = new JoystickButton(joy, 0);			// down
-
+e
 		JoystickButton d_right = new JoystickButton(joy, 1);		// open
 		JoystickButton d_left = new JoystickButton(joy, 2);			// close
-*/		
+*/
+		// logitech game pad F310
 		JoystickButton d_up = new JoystickButton(joy, 4);			// elevator up
-		JoystickButton d_down = new JoystickButton(joy, 1);			// elevator down
+		JoystickButton d_down = new JoystickButton(joy, 2);			// elevator down
 
-		JoystickButton d_right = new JoystickButton(joy, 2);		// claw open
-		JoystickButton d_left = new JoystickButton(joy, 3);			// claw close
+		JoystickButton d_right = new JoystickButton(joy, 3);		// claw open
+		JoystickButton d_left = new JoystickButton(joy, 1);			// claw close
 		
 		JoystickButton d_whori = new JoystickButton(joy, 5);		// wrist horizontal
 		JoystickButton d_wstr = new JoystickButton(joy, 6);			// wrist raised
@@ -72,3 +73,4 @@ public class OI {
 		return joy;
 	}
 }
+
