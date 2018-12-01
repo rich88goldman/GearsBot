@@ -48,12 +48,15 @@ public class DriveStraight extends Command {
 		});
 		pid.setAbsoluteTolerance(0.01);
 		pid.setSetpoint(distance);
+		
+		Robot.println("DriveStraight - new PIDController()");
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
 		// Get everything in a safe starting state.
+		Robot.println("DriveStraight - initialize()");
 		Robot.drivetrain.reset();
 		pid.reset();
 		pid.enable();
@@ -62,13 +65,16 @@ public class DriveStraight extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		return pid.onTarget();
+		boolean f = pid.onTarget();
+		Robot.println("DriveStraight - isFinished():" + f);
+		return f;
 	}
 
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
 		// Stop PID and the wheels
+		Robot.println("DriveStraight - end()");
 		pid.disable();
 		Robot.drivetrain.drive(0, 0);
 	}

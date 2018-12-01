@@ -1,6 +1,6 @@
 package org.usfirst.frc.team7587.robot.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
+//import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
@@ -30,10 +30,11 @@ public class DriveTrain extends Subsystem {
 	private Encoder leftEncoder = new Encoder(1, 2);
 	private Encoder rightEncoder = new Encoder(3, 4);
 	private AnalogInput rangefinder = new AnalogInput(6);
-	private AnalogGyro gyro = new AnalogGyro(1);
+//	private AnalogGyro gyro = new AnalogGyro(1);
 
 	public DriveTrain() {
 		super();
+		
 
 		// Encoders may measure differently in the real world and in
 		// simulation. In this example the robot moves 0.042 barleycorns
@@ -57,7 +58,7 @@ public class DriveTrain extends Subsystem {
 		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
 		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
 		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
-		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
+//		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
 	}
 
 	/**
@@ -66,6 +67,7 @@ public class DriveTrain extends Subsystem {
 	 */
 	@Override
 	public void initDefaultCommand() {
+		Robot.println("DriveTrain - initDefaultCommand()");
 		setDefaultCommand(new TankDriveWithJoystick());
 	}
 
@@ -77,7 +79,7 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Right Distance", rightEncoder.getDistance());
 		SmartDashboard.putNumber("Left Speed", leftEncoder.getRate());
 		SmartDashboard.putNumber("Right Speed", rightEncoder.getRate());
-		SmartDashboard.putNumber("Gyro", gyro.getAngle());
+//		SmartDashboard.putNumber("Gyro", gyro.getAngle());
 	}
 
 	/**
@@ -100,21 +102,24 @@ public class DriveTrain extends Subsystem {
 //		drive(-joy.getY(), -joy.getAxis(AxisType.kThrottle));
 		
 		// use xbox controller
-		drive(-joy.getY(), -joy.getRawAxis(4));
+		double lf = joy.getY();
+		double rt = joy.getRawAxis(4);
+		Robot.println("DriveTrain - drive(): "+ lf + "~" + rt);
+		drive(-lf, -rt);
 	}
 
 	/**
 	 * @return The robots heading in degrees.
 	 */
-	public double getHeading() {
-		return gyro.getAngle();
-	}
+//	public double getHeading() {
+//		return gyro.getAngle();
+//	}
 
 	/**
 	 * Reset the robots sensors to the zero states.
 	 */
 	public void reset() {
-		gyro.reset();
+//		gyro.reset();
 		leftEncoder.reset();
 		rightEncoder.reset();
 	}
@@ -123,7 +128,11 @@ public class DriveTrain extends Subsystem {
 	 * @return The distance driven (average of left and right encoders).
 	 */
 	public double getDistance() {
-		return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+		double lf = leftEncoder.getDistance();
+		double rt = rightEncoder.getDistance();
+		Robot.println("DriveTrain - getDistance(): "+ lf + "~" + rt);
+		
+		return (lf + rt) / 2;
 	}
 
 	/**
@@ -131,6 +140,7 @@ public class DriveTrain extends Subsystem {
 	 */
 	public double getDistanceToObstacle() {
 		// Really meters in simulation since it's a rangefinder...
+		Robot.println("DriveTrain - getDistanceToObstacle()");
 		return rangefinder.getAverageVoltage();
 	}
 }

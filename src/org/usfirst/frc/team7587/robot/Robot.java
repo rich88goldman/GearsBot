@@ -1,6 +1,7 @@
 package org.usfirst.frc.team7587.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -9,10 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.time.LocalDateTime;
 
 import org.usfirst.frc.team7587.robot.commands.Autonomous;
-import org.usfirst.frc.team7587.robot.subsystems.Claw;
 import org.usfirst.frc.team7587.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team7587.robot.subsystems.Elevator;
-import org.usfirst.frc.team7587.robot.subsystems.Wrist;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,9 +23,9 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static DriveTrain drivetrain;
-	public static Elevator elevator;
-	public static Wrist wrist;
-	public static Claw claw;
+//	public static Elevator elevator;
+//	public static Wrist wrist;
+//	public static Claw claw;
 	public static OI oi;
 
 	/**
@@ -38,9 +36,9 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		// Initialize all subsystems
 		drivetrain = new DriveTrain();
-		elevator = new Elevator();
-		wrist = new Wrist();
-		claw = new Claw();
+//		elevator = new Elevator();
+//		wrist = new Wrist();
+//		claw = new Claw();
 		oi = new OI();
 
 		// instantiate the command used for the autonomous period
@@ -48,9 +46,9 @@ public class Robot extends IterativeRobot {
 
 		// Show what command your subsystem is running on the SmartDashboard
 		SmartDashboard.putData(drivetrain);
-		SmartDashboard.putData(elevator);
-		SmartDashboard.putData(wrist);
-		SmartDashboard.putData(claw);
+//		SmartDashboard.putData(elevator);
+//		SmartDashboard.putData(wrist);
+//		SmartDashboard.putData(claw);
 	}
 
 	@Override
@@ -65,7 +63,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 //		log2("auto-periodic");
-		Scheduler.getInstance().run();
+		Scheduler sd = Scheduler.getInstance();
+		sd.run();
+		Timer.delay(0.2);
 		log();
 	}
 
@@ -85,7 +85,9 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 //		log2("teleop-periodic");
-		Scheduler.getInstance().run();
+		Scheduler sd = Scheduler.getInstance();
+		sd.run();
+		Timer.delay(0.2);
 		log();
 	}
 
@@ -101,10 +103,10 @@ public class Robot extends IterativeRobot {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	private void log() {
-		wrist.log();
-		elevator.log();
+//		wrist.log();
+//		elevator.log();
 		drivetrain.log();
-		claw.log();
+//		claw.log();
 	}
 	
 	public static void println(String s) {
