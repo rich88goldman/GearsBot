@@ -30,14 +30,6 @@ public class OI {
 		SmartDashboard.putData("Drive Straight F+4", new DriveStraight(4));
 		SmartDashboard.putData("Drive Straight F-4", new DriveStraight(-4));
 		
-/*
-		// Create some buttons
-		JoystickButton d_up = new JoystickButton(joy, 3);			// up
-		JoystickButton d_down = new JoystickButton(joy, 0);			// down
-e
-		JoystickButton d_right = new JoystickButton(joy, 1);		// open
-		JoystickButton d_left = new JoystickButton(joy, 2);			// close
-*/
 		// logitech game pad F310
 		JoystickButton d_up = new JoystickButton(joy, 4);			// elevator up
 		JoystickButton d_down = new JoystickButton(joy, 2);			// elevator down

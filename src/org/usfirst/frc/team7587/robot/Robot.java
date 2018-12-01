@@ -69,7 +69,7 @@ public class Robot extends IterativeRobot {
 //		log2("auto-periodic");
 		Scheduler sd = Scheduler.getInstance();
 		sd.run();
-//		Timer.delay(0.2);
+		Timer.delay(0.2);
 		log();
 	}
 
@@ -91,7 +91,7 @@ public class Robot extends IterativeRobot {
 //		log2("teleop-periodic");
 		Scheduler sd = Scheduler.getInstance();
 		sd.run();
-//		Timer.delay(0.2);
+		Timer.delay(0.2);
 		log();
 	}
 
