@@ -10,10 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import java.time.LocalDateTime;
 
 import org.usfirst.frc.team7587.robot.commands.Autonomous;
-import org.usfirst.frc.team7587.robot.subsystems.Claw;
 import org.usfirst.frc.team7587.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team7587.robot.subsystems.Elevator;
-import org.usfirst.frc.team7587.robot.subsystems.Wrist;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,9 +23,9 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static DriveTrain drivetrain;
-	public static Elevator elevator;
-	public static Wrist wrist;
-	public static Claw claw;
+//	public static Elevator elevator;
+//	public static Wrist wrist;
+//	public static Claw claw;
 	public static OI oi;
 
 	/**
@@ -39,9 +36,9 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		// Initialize all subsystems
 		drivetrain = new DriveTrain();
-		elevator = new Elevator();
-		wrist = new Wrist();
-		claw = new Claw();
+//		elevator = new Elevator();
+//		wrist = new Wrist();
+//		claw = new Claw();
 		oi = new OI();
 
 		// instantiate the command used for the autonomous period
@@ -49,10 +46,16 @@ public class Robot extends IterativeRobot {
 
 		// Show what command your subsystem is running on the SmartDashboard
 		SmartDashboard.putData(drivetrain);
+<<<<<<< HEAD
 		SmartDashboard.putData(elevator);
 		SmartDashboard.putData(wrist);
 		SmartDashboard.putData(claw);
 
+=======
+//		SmartDashboard.putData(elevator);
+//		SmartDashboard.putData(wrist);
+//		SmartDashboard.putData(claw);
+>>>>>>> branch 'master' of https://github.com/rich88goldman/GearsBot
 	}
 
 	@Override
