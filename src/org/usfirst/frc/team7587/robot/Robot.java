@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousInit() {
-		println("autoinit");
+		println("autonomousInit, autonomousCommand start");
 		autonomousCommand.start(); // schedule the autonomous command (example)
 	}
 
@@ -66,10 +66,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-//		log2("auto-periodic");
-		Scheduler sd = Scheduler.getInstance();
-		sd.run();
-		Timer.delay(0.2);
+//		println("autonomousPeriodic...");
+		Scheduler.getInstance().run();
+		Timer.delay(0.1);
 		log();
 	}
 
@@ -79,7 +78,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		println("teleOp init");
+		println("teleopInit");
 		autonomousCommand.cancel();
 	}
 
@@ -88,10 +87,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-//		log2("teleop-periodic");
-		Scheduler sd = Scheduler.getInstance();
-		sd.run();
-		Timer.delay(0.2);
+//		println("teleopPeriodic...");
+		Scheduler.getInstance().run();
+		Timer.delay(0.1);
 		log();
 	}
 
@@ -116,6 +114,7 @@ public class Robot extends IterativeRobot {
 	public static void println(String s) {
 		System.out.println("<" + LocalDateTime.now() + ">: " + s);
 	}
+	
 	
 }
 

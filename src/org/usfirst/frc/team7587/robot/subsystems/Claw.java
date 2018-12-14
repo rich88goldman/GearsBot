@@ -4,6 +4,8 @@
  */
 package org.usfirst.frc.team7587.robot.subsystems;
 
+import org.usfirst.frc.team7587.robot.Robot;
+
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
@@ -22,6 +24,7 @@ public class Claw extends Subsystem {
 
 	public Claw() {
 		super();
+		Robot.println("Claw constructor");
 
 		// Let's show everything on the LiveWindow
 		LiveWindow.addActuator("Claw", "Motor", (Victor) motor);

@@ -27,11 +27,12 @@ public class Elevator extends PIDSubsystem {
 
 	public Elevator() {
 		super(kP_real, kI_real, 0);
+		Robot.println("Elevator constructor");
 		if (Robot.isSimulation()) { // Check for simulation and update PID
 									// values
 			getPIDController().setPID(kP_simulation, kI_simulation, 0, 0);
 		}
-		setAbsoluteTolerance(0.005);
+		setAbsoluteTolerance(0.05);
 		
 
 		motor = new Victor(5);
@@ -58,6 +59,9 @@ public class Elevator extends PIDSubsystem {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	public void log() {
+		
+//		Robot.println("elevator pot: " + pot.get());
+		
 		SmartDashboard.putData("Wrist Pot", (AnalogPotentiometer) pot);
 	}
 
@@ -67,6 +71,7 @@ public class Elevator extends PIDSubsystem {
 	 */
 	@Override
 	protected double returnPIDInput() {
+//		Robot.println("elevator pot: " + pot.get());
 		return pot.get();
 	}
 

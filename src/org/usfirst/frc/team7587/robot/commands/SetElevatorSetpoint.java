@@ -4,6 +4,7 @@
  */
 package org.usfirst.frc.team7587.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team7587.robot.Robot;
@@ -33,6 +34,7 @@ public class SetElevatorSetpoint extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
+		Timer.delay(0.75);
 		Robot.println("check finish: current setPoint=" + Robot.elevator.getSetpoint() + " vs " + this.setpoint);
 		return Robot.elevator.getSetpoint() == this.setpoint;
 //		return Robot.elevator.onTarget();			// it doesn't use value from setAbsoluteTolerance(0.005)!?

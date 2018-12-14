@@ -34,7 +34,7 @@ public class DriveTrain extends Subsystem {
 
 	public DriveTrain() {
 		super();
-
+		Robot.println("DriveTrain constructor");
 		// Encoders may measure differently in the real world and in
 		// simulation. In this example the robot moves 0.042 barleycorns
 		// per tick in the real world, but the simulated encoders

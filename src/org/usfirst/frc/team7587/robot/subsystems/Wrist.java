@@ -26,6 +26,7 @@ public class Wrist extends PIDSubsystem {
 
 	public Wrist() {
 		super(kP_real, 0, 0);
+		Robot.println("Wrist constructor");
 		if (Robot.isSimulation()) { // Check for simulation and update PID
 									// values
 			getPIDController().setPID(kP_simulation, 0, 0, 0);
@@ -65,6 +66,7 @@ public class Wrist extends PIDSubsystem {
 	 */
 	@Override
 	protected double returnPIDInput() {
+		Robot.println("returnPIDInput:" + pot.get());
 		return pot.get();
 	}
 
@@ -74,6 +76,7 @@ public class Wrist extends PIDSubsystem {
 	 */
 	@Override
 	protected void usePIDOutput(double d) {
+		Robot.println("usePIDOutput:" + d);
 		motor.set(d);
 	}
 }
