@@ -28,8 +28,7 @@ public class Elevator extends PIDSubsystem {
 	public Elevator() {
 		super(kP_real, kI_real, 0);
 		Robot.println("Elevator constructor");
-		if (Robot.isSimulation()) { // Check for simulation and update PID
-									// values
+		if (Robot.isSimulation()) { // Check for simulation and update PID values
 			getPIDController().setPID(kP_simulation, kI_simulation, 0, 0);
 		}
 		setAbsoluteTolerance(0.05);
@@ -46,9 +45,9 @@ public class Elevator extends PIDSubsystem {
 		}
 
 		// Let's show everything on the LiveWindow
-		LiveWindow.addActuator("ElevatoR", "Motor", (Victor) motor);
-		LiveWindow.addSensor("ElevatoR", "Pot", (AnalogPotentiometer) pot);
-		LiveWindow.addActuator("ElevatoR", "PID", getPIDController());
+//		LiveWindow.addActuator("ElevatoR", "Motor", (Victor) motor);
+//		LiveWindow.addSensor("ElevatoR", "Pot", (AnalogPotentiometer) pot);
+//		LiveWindow.addActuator("ElevatoR", "PID", getPIDController());
 	}
 
 	@Override
@@ -81,6 +80,8 @@ public class Elevator extends PIDSubsystem {
 	 */
 	@Override
 	protected void usePIDOutput(double d) {
-		motor.set(d);
+		if(!Double.isNaN(d)) {
+			motor.set(d);
+		}
 	}
 }

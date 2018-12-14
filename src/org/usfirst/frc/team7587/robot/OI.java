@@ -30,8 +30,8 @@ public class OI {
 
 //		SmartDashboard.putData("Deliver Soda", new Autonomous());
 		
-		SmartDashboard.putData("Drive Straight F+4", new DriveStraight(4));
-		SmartDashboard.putData("Drive Straight F-4", new DriveStraight(-4));
+//		SmartDashboard.putData("Drive Straight F+4", new DriveStraight(4));
+//		SmartDashboard.putData("Drive Straight F-4", new DriveStraight(-4));
 		
 		// logitech game pad F310
 		JoystickButton d_up = new JoystickButton(joy, 4);			// elevator up

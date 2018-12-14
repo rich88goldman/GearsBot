@@ -27,8 +27,8 @@ public class Claw extends Subsystem {
 		Robot.println("Claw constructor");
 
 		// Let's show everything on the LiveWindow
-		LiveWindow.addActuator("Claw", "Motor", (Victor) motor);
-		LiveWindow.addActuator("Claw", "Limit Switch", contact);
+//		LiveWindow.addActuator("Claw", "Motor", (Victor) motor);
+//		LiveWindow.addActuator("Claw", "Limit Switch", contact);
 	}
 
 	@Override

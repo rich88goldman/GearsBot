@@ -21,7 +21,7 @@ public class OpenClaw extends TimedCommand {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		Robot.println("OpenClaw init: " + System.identityHashCode(this));
+		Robot.println("OpenClaw init");
 		Robot.claw.open();
 	}
 

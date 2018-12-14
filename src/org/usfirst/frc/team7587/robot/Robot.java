@@ -32,8 +32,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
+	 * This function is run when the robot is first started up and should be used
+	 * for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
@@ -54,6 +54,15 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(claw);
 
 	}
+/*
+	public static boolean isReal() {
+		return false;
+	}
+	public static boolean isSimulation() {
+		return true;
+	}
+*/
+	
 
 	@Override
 	public void autonomousInit() {
@@ -66,9 +75,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-//		println("autonomousPeriodic...");
+		// println("autonomousPeriodic...");
 		Scheduler.getInstance().run();
-		Timer.delay(0.1);
+		// Timer.delay(0.1);
 		log();
 	}
 
@@ -87,9 +96,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-//		println("teleopPeriodic...");
+		// println("teleopPeriodic...");
 		Scheduler.getInstance().run();
-		Timer.delay(0.1);
+		// Timer.delay(0.1);
 		log();
 	}
 
@@ -105,16 +114,19 @@ public class Robot extends IterativeRobot {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	private void log() {
-//		wrist.log();
-//		elevator.log();
+		// wrist.log();
+		// elevator.log();
 		drivetrain.log();
-//		claw.log();
+		// claw.log();
 	}
-	
+
 	public static void println(String s) {
 		System.out.println("<" + LocalDateTime.now() + ">: " + s);
 	}
-	
-	
-}
 
+	// @Override
+	// public boolean isReal() {
+	// return false;
+	// }
+
+}

@@ -29,8 +29,8 @@ public class DriveTrain extends Subsystem {
 
 	private Encoder leftEncoder = new Encoder(1, 2);
 	private Encoder rightEncoder = new Encoder(3, 4);
-	private AnalogInput rangefinder = new AnalogInput(6);
-	private AnalogGyro gyro = new AnalogGyro(1);
+//	private AnalogInput rangefinder = new AnalogInput(6);
+//	private AnalogGyro gyro = new AnalogGyro(1);
 
 	public DriveTrain() {
 		super();
@@ -56,8 +56,8 @@ public class DriveTrain extends Subsystem {
 		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
 		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
 		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
-		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
-		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
+//		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
+//		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
 	}
 
 	/**
@@ -76,8 +76,8 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Left Distance", leftEncoder.getDistance());
 		SmartDashboard.putNumber("Right Distance", rightEncoder.getDistance());
 		SmartDashboard.putNumber("Left Speed", leftEncoder.getRate());
-		SmartDashboard.putNumber("Right Speed", rightEncoder.getRate());
-		SmartDashboard.putNumber("Gyro", gyro.getAngle());
+//		SmartDashboard.putNumber("Right Speed", rightEncoder.getRate());
+//		SmartDashboard.putNumber("Gyro", gyro.getAngle());
 	}
 
 	/**
@@ -100,15 +100,15 @@ public class DriveTrain extends Subsystem {
 	/**
 	 * @return The robots heading in degrees.
 	 */
-	public double getHeading() {
-		return gyro.getAngle();
-	}
+//	public double getHeading() {
+//		return gyro.getAngle();
+//	}
 
 	/**
 	 * Reset the robots sensors to the zero states.
 	 */
 	public void reset() {
-		gyro.reset();
+//		gyro.reset();
 		leftEncoder.reset();
 		rightEncoder.reset();
 	}
@@ -125,6 +125,6 @@ public class DriveTrain extends Subsystem {
 	 */
 	public double getDistanceToObstacle() {
 		// Really meters in simulation since it's a rangefinder...
-		return rangefinder.getAverageVoltage();
+		return 0;// rangefinder.getAverageVoltage();
 	}
 }
