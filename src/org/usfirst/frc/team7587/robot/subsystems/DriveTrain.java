@@ -50,12 +50,12 @@ public class DriveTrain extends Subsystem {
 		}
 
 		// Let's show everything on the LiveWindow
-		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeftMotor);
-		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeftMotor);
-		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRightMotor);
-		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
-		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
-		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
+//		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeftMotor);
+//		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeftMotor);
+//		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRightMotor);
+//		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
+//		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
+//		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
 //		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
 //		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
 	}

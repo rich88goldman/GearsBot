@@ -45,9 +45,9 @@ public class Elevator extends PIDSubsystem {
 		}
 
 		// Let's show everything on the LiveWindow
-//		LiveWindow.addActuator("ElevatoR", "Motor", (Victor) motor);
-//		LiveWindow.addSensor("ElevatoR", "Pot", (AnalogPotentiometer) pot);
-//		LiveWindow.addActuator("ElevatoR", "PID", getPIDController());
+		LiveWindow.addActuator("Elevator", "Motor", (Victor) motor);
+		LiveWindow.addSensor("Elevator", "Pot", (AnalogPotentiometer) pot);
+		LiveWindow.addActuator("Elevator", "PID", getPIDController());
 	}
 
 	@Override

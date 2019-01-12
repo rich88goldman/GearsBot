@@ -114,10 +114,10 @@ public class Robot extends IterativeRobot {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	private void log() {
-		// wrist.log();
-		// elevator.log();
+		 wrist.log();
+		 elevator.log();
 		drivetrain.log();
-		// claw.log();
+		 claw.log();
 	}
 
 	public static void println(String s) {

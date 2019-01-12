@@ -43,6 +43,6 @@ public class CloseClaw extends TimedCommand {// Command {
 		// + there is no need to worry about stalling the motor or crushing the
 		// can.
 //		if (!Robot.isSimulation())
-			Robot.claw.stop();
+//			Robot.claw.stop();
 	}
 }
