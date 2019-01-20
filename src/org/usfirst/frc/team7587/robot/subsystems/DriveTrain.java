@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem {
 	private SpeedController rearRightMotor = new Talon(4);
 
 	private RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
-
+	
 	private Encoder leftEncoder = new Encoder(1, 2);
 	private Encoder rightEncoder = new Encoder(3, 4);
 //	private AnalogInput rangefinder = new AnalogInput(6);
@@ -50,10 +50,10 @@ public class DriveTrain extends Subsystem {
 		}
 
 		// Let's show everything on the LiveWindow
-//		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeftMotor);
-//		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeftMotor);
-//		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRightMotor);
-//		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
+		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeftMotor);
+		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeftMotor);
+		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRightMotor);
+		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
 //		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
 //		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
 //		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
@@ -117,6 +117,8 @@ public class DriveTrain extends Subsystem {
 	 * @return The distance driven (average of left and right encoders).
 	 */
 	public double getDistance() {
+		Robot.println("LE: " + leftEncoder.getDistance() + "; RE: " +rightEncoder.getDistance() );
+		
 		return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
 	}
 

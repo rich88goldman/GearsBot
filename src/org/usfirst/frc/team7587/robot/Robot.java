@@ -6,8 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.tables.ITable;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import org.usfirst.frc.team7587.robot.commands.Autonomous;
 import org.usfirst.frc.team7587.robot.subsystems.Claw;
@@ -23,7 +25,7 @@ import org.usfirst.frc.team7587.robot.subsystems.Wrist;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	Command autonomousCommand;
+	Command autoCmd;
 
 	public static DriveTrain drivetrain;
 	public static Elevator elevator;
@@ -37,6 +39,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
 		// Initialize all subsystems
 		drivetrain = new DriveTrain();
 		elevator = new Elevator();
@@ -45,29 +48,53 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new Autonomous();
 
 		// Show what command your subsystem is running on the SmartDashboard
 		SmartDashboard.putData(drivetrain);
 		SmartDashboard.putData(elevator);
 		SmartDashboard.putData(wrist);
 		SmartDashboard.putData(claw);
+		
+//		printTable();
 
 	}
-/*
+	
+	@Override
+	public void disabledInit() {
+	}
+	
+	@Override
+	public void disabledPeriodic() {
+	}
+	
+	@Override
+	public void robotPeriodic() {
+	}
+	
+	public static void printTable() {
+		Scheduler schd = Scheduler.getInstance();
+		ITable tb = schd.getTable();
+		if(tb!=null) {
+		Set<String> keys = schd.getTable().getKeys();
+		for(String k: keys) {
+			println("k:"+k);
+		}
+		}
+	}
+
 	public static boolean isReal() {
 		return false;
 	}
 	public static boolean isSimulation() {
 		return true;
 	}
-*/
-	
 
 	@Override
 	public void autonomousInit() {
-		println("autonomousInit, autonomousCommand start");
-		autonomousCommand.start(); // schedule the autonomous command (example)
+		println("autonomousInit ***");
+		autoCmd = new Autonomous();			// this must be a new instance if it needs to run more than once
+		autoCmd.start(); // schedule the autonomous command (example)
+		printTable();
 	}
 
 	/**
@@ -75,10 +102,11 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		// println("autonomousPeriodic...");
+//		 println("autonomousPeriodic...");
 		Scheduler.getInstance().run();
-		// Timer.delay(0.1);
-		log();
+		 Timer.delay(0.2);
+//		log();
+		
 	}
 
 	@Override
@@ -88,7 +116,12 @@ public class Robot extends IterativeRobot {
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
 		println("teleopInit");
-		autonomousCommand.cancel();
+		if(autoCmd!=null) {
+			autoCmd.cancel();
+		}
+		
+//		printTable();
+		
 	}
 
 	/**
@@ -96,10 +129,11 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		// println("teleopPeriodic...");
+//		 println("teleopPeriodic...");
 		Scheduler.getInstance().run();
-		// Timer.delay(0.1);
-		log();
+		 Timer.delay(0.2);
+//		log();
+		
 	}
 
 	/**
@@ -122,6 +156,7 @@ public class Robot extends IterativeRobot {
 
 	public static void println(String s) {
 		System.out.println("<" + LocalDateTime.now() + ">: " + s);
+		
 	}
 
 	// @Override

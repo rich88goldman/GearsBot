@@ -14,6 +14,7 @@ import org.usfirst.frc.team7587.robot.Robot;
 public class TankDriveWithJoystick extends Command {
 
 	public TankDriveWithJoystick() {
+		
 		requires(Robot.drivetrain);
 	}
 

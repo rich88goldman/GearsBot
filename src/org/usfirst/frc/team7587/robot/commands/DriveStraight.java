@@ -43,10 +43,17 @@ public class DriveStraight extends Command {
 		}, new PIDOutput() {
 			@Override
 			public void pidWrite(double d) {
-				Robot.drivetrain.drive(d, d);
+				if(Double.isNaN(d)) {
+					Robot.println(" found NaN!");
+					d = 0;
+				}else {
+					Robot.println("pid Write: " + d);
+				}
+				Robot.drivetrain.drive(d/2, d/2);
 			}
 		});
-		pid.setAbsoluteTolerance(0.01);
+		pid.setAbsoluteTolerance(0.02);
+		Robot.println("----set distance: " + distance);
 		pid.setSetpoint(distance);
 	}
 
@@ -54,14 +61,16 @@ public class DriveStraight extends Command {
 	@Override
 	protected void initialize() {
 		// Get everything in a safe starting state.
-		Robot.drivetrain.reset();
 		pid.reset();
 		pid.enable();
+		
+		Robot.drivetrain.reset();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
+		
 		return pid.onTarget();
 	}
 

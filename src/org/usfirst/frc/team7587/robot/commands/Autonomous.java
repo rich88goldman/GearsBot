@@ -15,19 +15,18 @@ public class Autonomous extends CommandGroup {
 		// addSequential(new PrepareToPickup());
 		// addSequential(new Pickup());
 		// addSequential(new SetDistanceToBox(0.10));
-		addSequential(new OpenClaw()); Timer.delay(1);
-		addSequential(new SetWristSetpoint(-45)); Timer.delay(1);
-		addSequential(new SetElevatorSetpoint(0.4)); Timer.delay(1);
+		addSequential(new OpenClaw()); Timer.delay(0.5);
+//		addSequential(new SetWristSetpoint(-45)); Timer.delay(0.5);
+		addSequential(new SetElevatorSetpoint(0.4)); Timer.delay(0.5);
 		addSequential(new DriveStraight(4)); Timer.delay(1); // Use Encoders if ultrasonic is broken
 		
 		// addSequential(new Place());
 		// addSequential(new SetDistanceToBox(0.60));
 //		addSequential(new SetWristSetpoint(0));
-		 addSequential(new DriveStraight(-4)); Timer.delay(1);// Use Encoders if ultrasonic is broken
-		addSequential(new SetElevatorSetpoint(0)); Timer.delay(1);
-		 addParallel(new SetWristSetpoint(0)); Timer.delay(1);
-		 addSequential(new CloseClaw()); Timer.delay(1);
-
+		 addSequential(new DriveStraight(-4)); Timer.delay(0.5);// Use Encoders if ultrasonic is broken
+		addSequential(new SetElevatorSetpoint(0)); Timer.delay(0.5);
+//		 addParallel(new SetWristSetpoint(0)); Timer.delay(0.5);
+		 addSequential(new CloseClaw()); 
 	}
 
 }
